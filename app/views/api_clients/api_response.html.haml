@@ -1,0 +1,14 @@
+-if @api_client.response.error?
+  .error="ERROR: #{@api_client.response.message}"
+-elsif @api_client.response.no_offers?
+  .no_offers
+    No offers
+-else
+  -@api_client.response.offers.each do |offer|
+    .offer
+      .title=offer[:title]
+      .payout=offer[:payout]
+      .thumbnail=image_tag(offer[:thumbnail])
+
+= link_to 'New Api Request', new_api_client_path
+

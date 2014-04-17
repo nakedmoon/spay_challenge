@@ -1,0 +1,19 @@
+= form_for @api_client do |f|
+  - if @api_client.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@api_client.errors.count, "error")} prohibited this product_property from being saved:"
+      %ul
+        - @api_client.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :uid
+    = f.text_field :uid
+  .field
+    = f.label :pub0
+    = f.text_field :pub0
+  .field
+    = f.label :page
+    = f.text_field :response_page
+  .actions
+    = f.submit 'Send Request'
